@@ -2,11 +2,13 @@
 # Author: Luca Sturlese
 # URL: http://9to5IT.com
 ###
-
+<#  tostka fork: 
+10:12 AM 12/21/2020 renamed cmlets with 'PSL' suffix (to [verb]-[noun]PSL), to avoid name clashes with my local verb-Logging module (DLConversion script req's PSLogging mod). pslogging.psd1 does't appear to have any explicits that require updates for the name changes: FunctionsToExport = '*' ; CmdletsToExport = '*' ; VariablesToExport = '*' ; AliasesToExport = '*' ; 
+#>
 Set-StrictMode -Version Latest
 
 
-Function Start-Log {
+Function start-LogPSL {
   <#
   .SYNOPSIS
     Creates a new log file
@@ -35,6 +37,22 @@ Function Start-Log {
     Log file created
 
   .NOTES
+  Version     : 1.4.0
+  Author      : Todd Kadrie (forked, renamed cmdlets)
+  Website     :	http://www.toddomation.com
+  Twitter     :	@tostka / http://twitter.com/tostka
+  CreatedDate : 2020-12-21
+  FileName    : 
+  License     : (none specified)
+  Copyright   : (none specified)
+  Github      : https://github.com/tostka/PSLogging
+  Tags        : Powershell,logging
+  AddedCredit : REFERENCE
+  AddedWebsite:	URL
+  AddedTwitter:	URL
+  REVISIONS
+    * 10:14 AM 12/21/2020 10:12 AM 12/21/2020 renamed cmlets with 'PSL' suffix (to [verb]-[noun]PSL), to avoid name clashes with my local verb-Logging module
+    
     Version:        1.0
     Author:         Luca Sturlese
     Creation Date:  10/05/12
@@ -62,9 +80,10 @@ Function Start-Log {
 
   .LINK
     http://9to5IT.com/powershell-logging-v2-easily-create-log-files
-
+  .LINK
+    https://github.com/tostka/PSLogging
   .EXAMPLE
-    Start-Log -LogPath "C:\Windows\Temp" -LogName "Test_Script.log" -ScriptVersion "1.5"
+    start-LogPSL -LogPath "C:\Windows\Temp" -LogName "Test_Script.log" -ScriptVersion "1.5"
 
     Creates a new log file with the file path of C:\Windows\Temp\Test_Script.log. Initialises the log file with
     the date and time the log was created (or the calling script started executing) and the calling script's version.
@@ -123,7 +142,7 @@ Function Start-Log {
   }
 }
 
-Function Write-LogInfo {
+Function write-LogInfoPSL {
   <#
   .SYNOPSIS
     Writes informational message to specified log file
@@ -152,6 +171,21 @@ Function Write-LogInfo {
     None
 
   .NOTES
+  Version     : 1.4.0
+  Author      : Todd Kadrie (forked, renamed cmdlets)
+  Website     :	http://www.toddomation.com
+  Twitter     :	@tostka / http://twitter.com/tostka
+  CreatedDate : 2020-12-21
+  FileName    : 
+  License     : (none specified)
+  Copyright   : (none specified)
+  Github      : https://github.com/tostka/PSLogging
+  Tags        : Powershell,logging
+  AddedCredit : REFERENCE
+  AddedWebsite:	URL
+  AddedTwitter:	URL
+  REVISIONS
+    * 10:14 AM 12/21/2020 10:12 AM 12/21/2020 renamed cmlets with 'PSL' suffix (to [verb]-[noun]PSL), to avoid name clashes with my local verb-Logging module
     Version:        1.0
     Author:         Luca Sturlese
     Creation Date:  10/05/12
@@ -186,7 +220,7 @@ Function Write-LogInfo {
     http://9to5IT.com/powershell-logging-v2-easily-create-log-files
 
   .EXAMPLE
-    Write-LogInfo -LogPath "C:\Windows\Temp\Test_Script.log" -Message "This is a new line which I am appending to the end of the log file."
+    write-LogInfoPSL -LogPath "C:\Windows\Temp\Test_Script.log" -Message "This is a new line which I am appending to the end of the log file."
 
     Writes a new informational log message to a new line in the specified log file.
   #>
@@ -219,7 +253,7 @@ Function Write-LogInfo {
   }
 }
 
-Function Write-LogWarning {
+Function write-LogWarningPSL {
   <#
   .SYNOPSIS
     Writes warning message to specified log file
@@ -248,6 +282,21 @@ Function Write-LogWarning {
     None
 
   .NOTES
+  Version     : 1.4.0
+  Author      : Todd Kadrie (forked, renamed cmdlets)
+  Website     :	http://www.toddomation.com
+  Twitter     :	@tostka / http://twitter.com/tostka
+  CreatedDate : 2020-12-21
+  FileName    : 
+  License     : (none specified)
+  Copyright   : (none specified)
+  Github      : https://github.com/tostka/PSLogging
+  Tags        : Powershell,logging
+  AddedCredit : REFERENCE
+  AddedWebsite:	URL
+  AddedTwitter:	URL
+  REVISIONS
+    * 10:14 AM 12/21/2020 10:12 AM 12/21/2020 renamed cmlets with 'PSL' suffix (to [verb]-[noun]PSL), to avoid name clashes with my local verb-Logging module
     Version:        1.0
     Author:         Luca Sturlese
     Creation Date:  02/09/15
@@ -267,7 +316,7 @@ Function Write-LogWarning {
     http://9to5IT.com/powershell-logging-v2-easily-create-log-files
 
   .EXAMPLE
-    Write-LogWarning -LogPath "C:\Windows\Temp\Test_Script.log" -Message "This is a warning message."
+    write-LogWarningPSL -LogPath "C:\Windows\Temp\Test_Script.log" -Message "This is a warning message."
 
     Writes a new warning log message to a new line in the specified log file.
   #>
@@ -300,7 +349,7 @@ Function Write-LogWarning {
   }
 }
 
-Function Write-LogError {
+Function write-LogErrorPSL {
   <#
   .SYNOPSIS
     Writes error message to specified log file
@@ -319,7 +368,7 @@ Function Write-LogError {
     when a task started and stopped.
 
   .PARAMETER ExitGracefully
-    Optional. If parameter specified, then runs Stop-Log and then exits script
+    Optional. If parameter specified, then runs stop-LogPSL and then exits script
 
   .PARAMETER ToScreen
     Optional. When parameter specified will display the content to screen as well as write to log file. This provides an additional
@@ -332,6 +381,22 @@ Function Write-LogError {
     None
 
   .NOTES
+  Version     : 1.4.0
+  Author      : Todd Kadrie (forked, renamed cmdlets)
+  Website     :	http://www.toddomation.com
+  Twitter     :	@tostka / http://twitter.com/tostka
+  CreatedDate : 2020-12-21
+  FileName    : 
+  License     : (none specified)
+  Copyright   : (none specified)
+  Github      : https://github.com/tostka/PSLogging
+  Tags        : Powershell,logging
+  AddedCredit : REFERENCE
+  AddedWebsite:	URL
+  AddedTwitter:	URL
+  REVISIONS
+    * 10:14 AM 12/21/2020 10:12 AM 12/21/2020 renamed cmlets with 'PSL' suffix (to [verb]-[noun]PSL), to avoid name clashes with my local verb-Logging module
+  
     Version:        1.0
     Author:         Luca Sturlese
     Creation Date:  10/05/12
@@ -376,15 +441,15 @@ Function Write-LogError {
     http://9to5IT.com/powershell-logging-v2-easily-create-log-files
 
   .EXAMPLE
-    Write-LogError -LogPath "C:\Windows\Temp\Test_Script.log" -Message $_.Exception -ExitGracefully
+    write-LogErrorPSL -LogPath "C:\Windows\Temp\Test_Script.log" -Message $_.Exception -ExitGracefully
 
     Writes a new error log message to a new line in the specified log file. Once the error has been written,
-    the Stop-Log function is excuted and the calling script is exited.
+    the stop-LogPSL function is excuted and the calling script is exited.
 
   .EXAMPLE
-    Write-LogError -LogPath "C:\Windows\Temp\Test_Script.log" -Message $_.Exception
+    write-LogErrorPSL -LogPath "C:\Windows\Temp\Test_Script.log" -Message $_.Exception
 
-    Writes a new error log message to a new line in the specified log file, but does not execute the Stop-Log
+    Writes a new error log message to a new line in the specified log file, but does not execute the stop-LogPSL
     function, nor does it exit the calling script. In other words, the only thing that occurs is an error message
     is written to the log file and that is it.
 
@@ -421,13 +486,13 @@ Function Write-LogError {
     #If $ExitGracefully = True then run Log-Finish and exit script
     If ( $ExitGracefully -eq $True ){
       Add-Content -Path $LogPath -Value " "
-      Stop-Log -LogPath $LogPath
+      stop-LogPSL -LogPath $LogPath
       Break
     }
   }
 }
 
-Function Stop-Log {
+Function stop-LogPSL {
   <#
   .SYNOPSIS
     Write closing data to log file & exits the calling script
@@ -439,7 +504,7 @@ Function Stop-Log {
     Mandatory. Full path of the log file you want to write finishing data to. Example: C:\Windows\Temp\Test_Script.log
 
   .PARAMETER NoExit
-    Optional. If parameter specified, then the function will not exit the calling script, so that further execution can occur (like Send-Log)
+    Optional. If parameter specified, then the function will not exit the calling script, so that further execution can occur (like send-LogPSL)
 
   .PARAMETER ToScreen
     Optional. When parameter specified will display the content to screen as well as write to log file. This provides an additional
@@ -452,6 +517,21 @@ Function Stop-Log {
     None
 
   .NOTES
+  Version     : 1.4.0
+  Author      : Todd Kadrie (forked, renamed cmdlets)
+  Website     :	http://www.toddomation.com
+  Twitter     :	@tostka / http://twitter.com/tostka
+  CreatedDate : 2020-12-21
+  FileName    : 
+  License     : (none specified)
+  Copyright   : (none specified)
+  Github      : https://github.com/tostka/PSLogging
+  Tags        : Powershell,logging
+  AddedCredit : REFERENCE
+  AddedWebsite:	URL
+  AddedTwitter:	URL
+  REVISIONS
+    * 10:14 AM 12/21/2020 10:12 AM 12/21/2020 renamed cmlets with 'PSL' suffix (to [verb]-[noun]PSL), to avoid name clashes with my local verb-Logging module
     Version:        1.0
     Author:         Luca Sturlese
     Creation Date:  10/05/12
@@ -486,18 +566,18 @@ Function Stop-Log {
     http://9to5IT.com/powershell-logging-v2-easily-create-log-files
 
   .EXAMPLE
-    Stop-Log -LogPath "C:\Windows\Temp\Test_Script.log"
+    stop-LogPSL -LogPath "C:\Windows\Temp\Test_Script.log"
 
     Writes the closing logging information to the log file and then exits the calling script.
 
     Note: If you don't specify the -NoExit parameter, then the script will exit the calling script.
 
   .EXAMPLE
-    Stop-Log -LogPath "C:\Windows\Temp\Test_Script.log" -NoExit
+    stop-LogPSL -LogPath "C:\Windows\Temp\Test_Script.log" -NoExit
 
     Writes the closing logging information to the log file but does not exit the calling script. This then
     allows you to continue executing additional functionality in the calling script (such as calling the
-    Send-Log function to email the created log to users).
+    send-LogPSL function to email the created log to users).
   #>
 
   [CmdletBinding()]
@@ -535,7 +615,7 @@ Function Stop-Log {
   }
 }
 
-Function Send-Log {
+Function send-LogPSL {
   <#
   .SYNOPSIS
     Emails completed log file to list of recipients
@@ -565,6 +645,21 @@ Function Send-Log {
     Email sent to the list of addresses specified
 
   .NOTES
+  Version     : 1.4.0
+  Author      : Todd Kadrie (forked, renamed cmdlets)
+  Website     :	http://www.toddomation.com
+  Twitter     :	@tostka / http://twitter.com/tostka
+  CreatedDate : 2020-12-21
+  FileName    : 
+  License     : (none specified)
+  Copyright   : (none specified)
+  Github      : https://github.com/tostka/PSLogging
+  Tags        : Powershell,logging
+  AddedCredit : REFERENCE
+  AddedWebsite:	URL
+  AddedTwitter:	URL
+  REVISIONS
+    * 10:14 AM 12/21/2020 10:12 AM 12/21/2020 renamed cmlets with 'PSL' suffix (to [verb]-[noun]PSL), to avoid name clashes with my local verb-Logging module
     Version:        1.0
     Author:         Luca Sturlese
     Creation Date:  05.10.12
@@ -584,7 +679,7 @@ Function Send-Log {
     http://9to5IT.com/powershell-logging-v2-easily-create-log-files
 
   .EXAMPLE
-    Send-Log -SMTPServer "smtp.google.com" -LogPath "C:\Windows\Temp\Test_Script.log" -EmailFrom "admin@9to5IT.com" -EmailTo "admin@9to5IT.com, test@test.com" -EmailSubject "Cool Script"
+    send-LogPSL -SMTPServer "smtp.google.com" -LogPath "C:\Windows\Temp\Test_Script.log" -EmailFrom "admin@9to5IT.com" -EmailTo "admin@9to5IT.com, test@test.com" -EmailSubject "Cool Script"
 
     Sends an email with the contents of the log file as the body of the email. Sends the email from admin@9to5IT.com and sends
     the email to admin@9to5IT.com and test@test.com email addresses. The email has the subject of Cool Script. The email is
